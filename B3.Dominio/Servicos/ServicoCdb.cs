@@ -55,15 +55,15 @@ namespace B3.Dominio.Servicos
 
             for (int i = 0; i < prazoMeses; i++)
             {
-                valorFinal = valorAplicacao * (1 + (taxasBancarias.TaxaBancaria * taxasBancarias.TaxaCDI));
+                valorFinal = Math.Round(valorAplicacao * (1 + (taxasBancarias.TaxaBancaria * taxasBancarias.TaxaCDI)), 4);
                 valorAplicacao = valorFinal;
             }
 
             decimal valorRendimento = valorFinal - valorInicial;
             decimal valorLiquido = valorInicial + (valorRendimento * (1 - faixaImpostoRenda.PercentualImposto));
 
-            rentabilidade.ResultadoBruto = valorFinal;
-            rentabilidade.ResultadoLiquido = valorLiquido;
+            rentabilidade.ResultadoBruto = Math.Round(valorFinal, 2);
+            rentabilidade.ResultadoLiquido = Math.Round(valorLiquido, 2);
 
             return rentabilidade;
         }
