@@ -38,7 +38,7 @@ namespace B3.Aplicacao
         /// <returns>Rentabilidade do investimento</returns>
         public RentabilidadeCdbDto CalcularInvestimento(decimal valorInicial, int prazoMeses)
         {
-            if (valorInicial <= 0 || prazoMeses <= 0)
+            if (valorInicial <= 0 || prazoMeses <= 1)
             {
                 return new RentabilidadeCdbDto
                 {

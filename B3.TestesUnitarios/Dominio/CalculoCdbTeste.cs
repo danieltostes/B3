@@ -34,17 +34,17 @@ namespace B3.TestesUnitarios.Dominio
         #region Testes
         [Theory(DisplayName = "Cálculo da rentabilidade CDB")]
         [Trait("Cálculo CDB", "Serviços")]
+        [InlineData(0, 1)]
         [InlineData(1000, 6)]
         [InlineData(1000, 12)]
         [InlineData(1000, 24)]
         [InlineData(1000, 36)]
-        [InlineData(0, 0)]
         public void CalcularRendimentoCdb(decimal valorInicial, int prazoMeses)
         {
             #region Valores esperados para meses aplicados
             var resultadosEsperados = new Dictionary<int, decimal[] >
             {
-                { 0, new decimal[]{ 0, 0 } },
+                { 1, new decimal[]{ 0, 0 } },
                 { 6, new decimal[]{ 1059.76M, 1046.31M } },
                 {12, new decimal[]{ 1123.08M, 1098.47M } },
                 {24, new decimal[]{ 1261.31M, 1215.58M } },

@@ -40,7 +40,7 @@ namespace B3.Dominio.Servicos
                 ResultadoLiquido = 0
             };
 
-            if (valorInicial <= 0 || prazoMeses <= 0)
+            if (valorInicial <= 0 || prazoMeses <= 1)
                 return rentabilidade;
 
             var taxasBancarias = repositorioTaxasBancarias.ObterTaxasBancariasVigentes();
