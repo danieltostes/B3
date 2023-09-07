@@ -23,7 +23,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\B3.Aplicacao\B3.Aplicacao.csproj" />
     <ProjectReference Include="..\B3.Dominio\B3.Dominio.csproj" />
+    <ProjectReference Include="..\B3.Infraestrutura.CrossCuting.Mapper\B3.Infraestrutura.CrossCuting.Mapper.csproj" />
   </ItemGroup>
 
 </Project>

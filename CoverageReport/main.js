@@ -219,12 +219,23 @@ for (i = 0, l = charts.length; i < l; i++) {
 
 var assemblies = [
   {
+    "name": "B3.Aplicacao",
+    "classes": [
+      { "name": "B3.Aplicacao.CdbApi", "rp": "B3.Aplicacao_CdbApi.html", "cl": 17, "ucl": 0, "cal": 17, "tl": 57, "cb": 4, "tb": 4, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "B3.Aplicacao.Modelos.RentabilidadeCdbDto", "rp": "B3.Aplicacao_RentabilidadeCdbDto.html", "cl": 2, "ucl": 0, "cal": 2, "tl": 24, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+    ]},
+  {
     "name": "B3.Dominio",
     "classes": [
       { "name": "B3.Dominio.Entidades.FaixaImpostoRenda", "rp": "B3.Dominio_FaixaImpostoRenda.html", "cl": 2, "ucl": 0, "cal": 2, "tl": 24, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "B3.Dominio.Entidades.RentabilidadeCdb", "rp": "B3.Dominio_RentabilidadeCdb.html", "cl": 2, "ucl": 0, "cal": 2, "tl": 24, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "B3.Dominio.Entidades.TaxasBancarias", "rp": "B3.Dominio_TaxasBancarias.html", "cl": 2, "ucl": 0, "cal": 2, "tl": 24, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "B3.Dominio.Servicos.ServicoCdb", "rp": "B3.Dominio_ServicoCdb.html", "cl": 30, "ucl": 0, "cal": 30, "tl": 71, "cb": 10, "tb": 10, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+    ]},
+  {
+    "name": "B3.Infraestrutura.CrossCuting.Mapper",
+    "classes": [
+      { "name": "B3.Infraestrutura.CrossCuting.Mapper.AutoMapperConfig", "rp": "B3.Infraestrutura.CrossCuting.Mapper_AutoMapperConfig.html", "cl": 11, "ucl": 0, "cal": 11, "tl": 32, "cb": 2, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
     ]},
 ];
 
