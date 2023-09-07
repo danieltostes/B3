@@ -2,6 +2,7 @@
 using B3.Dominio.Interfaces.Repositorios;
 using B3.Dominio.Interfaces.Servicos;
 using B3.Dominio.Servicos;
+using B3.TestesUnitarios.Setups;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -30,42 +31,6 @@ namespace B3.TestesUnitarios.Dominio
         }
         #endregion
 
-        #region Mocks
-        private static Dictionary<int, decimal> ListarFaixasImpostoRenda()
-        {
-            return new Dictionary<int, decimal>
-            {
-                {0, 0.225M},
-                {6, 0.225M},
-                {12, 0.2M},
-                {24, 0.175M},
-                {36, 0.15M},
-            };
-        }
-
-        private void SetupMockTaxasBancarias()
-        {
-            repositorioTaxasBancarias.Setup(repositorio => repositorio.ObterTaxasBancariasVigentes())
-                .Returns(new TaxasBancarias
-                {
-                    TaxaBancaria = 1.08M,
-                    TaxaCDI = 0.009M
-                });
-        }
-
-        private void SetupMockFaixasImpostoRenda(int prazoMeses)
-        {
-            var faixasImposto = ListarFaixasImpostoRenda();
-
-            repositorioFaixaImpostoRenda.Setup(repositorio => repositorio.ObterFaixaImpostoRendaPorPrazo(It.IsAny<int>()))
-                .Returns(new FaixaImpostoRenda
-                {
-                    PrazoMeses = prazoMeses,
-                    PercentualImposto = faixasImposto[prazoMeses]
-                });
-        }
-        #endregion
-
         #region Testes
         [Theory(DisplayName = "Cálculo da rentabilidade CDB")]
         [Trait("Cálculo CDB", "Serviços")]
@@ -87,8 +52,8 @@ namespace B3.TestesUnitarios.Dominio
             };
             #endregion
 
-            SetupMockTaxasBancarias();
-            SetupMockFaixasImpostoRenda(prazoMeses);
+            SetupRepositorioTaxasBancarias.Setup(repositorioTaxasBancarias);
+            SetupRepositorioFaixasImpostoRenda.Setup(repositorioFaixaImpostoRenda, prazoMeses);
 
             Assert.NotNull(servicoCdb);
 
@@ -102,7 +67,7 @@ namespace B3.TestesUnitarios.Dominio
         [Trait("Crítica Taxas Bancarias Nula", "Serviços")]
         public void CriticarTaxasBancariasNula()
         {
-            SetupMockFaixasImpostoRenda(6);
+            SetupRepositorioFaixasImpostoRenda.Setup(repositorioFaixaImpostoRenda, 6);
 
             Assert.NotNull(servicoCdb);
 
@@ -116,7 +81,7 @@ namespace B3.TestesUnitarios.Dominio
         [Trait("Crítica Faixa Imposto de Renda Nula", "Serviços")]
         public void CriticarFaixaImpostoRendaNula()
         {
-            SetupMockTaxasBancarias();
+            SetupRepositorioTaxasBancarias.Setup(repositorioTaxasBancarias);
 
             Assert.NotNull(servicoCdb);
 
