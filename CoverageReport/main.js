@@ -222,6 +222,7 @@ var assemblies = [
     "name": "B3.Aplicacao",
     "classes": [
       { "name": "B3.Aplicacao.CdbApi", "rp": "B3.Aplicacao_CdbApi.html", "cl": 17, "ucl": 0, "cal": 17, "tl": 57, "cb": 4, "tb": 4, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "B3.Aplicacao.Modelos.CalculoRendimentoDto", "rp": "B3.Aplicacao_CalculoRendimentoDto.html", "cl": 0, "ucl": 2, "cal": 2, "tl": 24, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "B3.Aplicacao.Modelos.RentabilidadeCdbDto", "rp": "B3.Aplicacao_RentabilidadeCdbDto.html", "cl": 2, "ucl": 0, "cal": 2, "tl": 24, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
     ]},
   {

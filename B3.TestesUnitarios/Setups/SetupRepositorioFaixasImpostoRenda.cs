@@ -15,7 +15,7 @@ namespace B3.TestesUnitarios.Setups
         {
             var faixasImposto = new Dictionary<int, decimal>
             {
-                {0, 0.225M},
+                {1, 0.225M},
                 {6, 0.225M},
                 {12, 0.2M},
                 {24, 0.175M},

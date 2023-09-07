@@ -43,7 +43,7 @@ namespace B3.TestesUnitarios.Aplicacao
         #region Testes
         [Theory]
         [Trait("Cálculo CDB", "Aplicação")]
-        [InlineData(0, 0)]
+        [InlineData(0, 1)]
         [InlineData(3500, 6)]
         [InlineData(3500, 12)]
         [InlineData(3500, 24)]
@@ -55,7 +55,7 @@ namespace B3.TestesUnitarios.Aplicacao
             #region Valores esperados para meses aplicados
             var resultadosEsperados = new Dictionary<int, decimal[]>
             {
-                { 0, new decimal[]{ 0, 0 } },
+                { 1, new decimal[]{ 0, 0 } },
                 { 6, new decimal[]{ 3709.14M, 3662.09M } },
                 {12, new decimal[]{ 3930.79M, 3844.63M } },
                 {24, new decimal[]{ 4414.60M, 4254.54M } },
