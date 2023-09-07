@@ -26,16 +26,43 @@ namespace B3.TestesUnitarios.Negocio
         #region Construtor
         public CalculoCdbTeste()
         {
-            #region Setup repositório taxas bancárias
+            servicoCdb = new ServicoCdb(repositorioTaxasBancarias.Object, repositorioFaixaImpostoRenda.Object);
+        }
+        #endregion
+
+        #region Mocks
+        private static Dictionary<int, decimal> ListarFaixasImpostoRenda()
+        {
+            return new Dictionary<int, decimal>
+            {
+                {0, 0.225M},
+                {6, 0.225M},
+                {12, 0.2M},
+                {24, 0.175M},
+                {36, 0.15M},
+            };
+        }
+
+        private void SetupMockTaxasBancarias()
+        {
             repositorioTaxasBancarias.Setup(repositorio => repositorio.ObterTaxasBancariasVigentes())
                 .Returns(new TaxasBancarias
                 {
                     TaxaBancaria = 1.08M,
                     TaxaCDI = 0.009M
                 });
-            #endregion
+        }
 
-            servicoCdb = new ServicoCdb(repositorioTaxasBancarias.Object, repositorioFaixaImpostoRenda.Object);
+        private void SetupMockFaixasImpostoRenda(int prazoMeses)
+        {
+            var faixasImposto = ListarFaixasImpostoRenda();
+
+            repositorioFaixaImpostoRenda.Setup(repositorio => repositorio.ObterFaixaImpostoRendaPorPrazo(It.IsAny<int>()))
+                .Returns(new FaixaImpostoRenda
+                {
+                    PrazoMeses = prazoMeses,
+                    PercentualImposto = faixasImposto[prazoMeses]
+                });
         }
         #endregion
 
@@ -46,21 +73,13 @@ namespace B3.TestesUnitarios.Negocio
         [InlineData(1000, 12)]
         [InlineData(1000, 24)]
         [InlineData(1000, 36)]
+        [InlineData(0, 0)]
         public void CalcularRendimentoCdb(decimal valorInicial, int prazoMeses)
         {
-            #region Faixas de Imposto para Mock
-            var faixasImposto = new Dictionary<int, decimal>
-            {
-                {6, 0.225M},
-                {12, 0.2M},
-                {24, 0.175M},
-                {36, 0.15M},
-            };
-            #endregion
-
             #region Valores esperados para meses aplicados
             var resultadosEsperados = new Dictionary<int, decimal[] >
             {
+                { 0, new decimal[]{ 0, 0 } },
                 { 6, new decimal[]{ 1059.76M, 1046.31M } },
                 {12, new decimal[]{ 1123.08M, 1098.47M } },
                 {24, new decimal[]{ 1261.31M, 1215.58M } },
@@ -68,14 +87,8 @@ namespace B3.TestesUnitarios.Negocio
             };
             #endregion
 
-            #region Setup repositório faixas de imposto de renda
-            repositorioFaixaImpostoRenda.Setup(repositorio => repositorio.ObterFaixaImpostoRendaPorPrazo(It.IsAny<int>()))
-                .Returns(new FaixaImpostoRenda
-                {
-                    PrazoMeses = prazoMeses,
-                    PercentualImposto = faixasImposto[prazoMeses]
-                });
-            #endregion
+            SetupMockTaxasBancarias();
+            SetupMockFaixasImpostoRenda(prazoMeses);
 
             Assert.NotNull(servicoCdb);
 
@@ -83,6 +96,34 @@ namespace B3.TestesUnitarios.Negocio
             
             Assert.Equal(resultadosEsperados[prazoMeses][0], rentabilidade?.ResultadoBruto);
             Assert.Equal(resultadosEsperados[prazoMeses][1], rentabilidade?.ResultadoLiquido);
+        }
+
+        [Fact]
+        [Trait("Crítica Taxas Bancarias Nula", "Serviços")]
+        public void CriticarTaxasBancariasNula()
+        {
+            SetupMockFaixasImpostoRenda(6);
+
+            Assert.NotNull(servicoCdb);
+
+            var rentabilidade = servicoCdb?.CalcularInvestimento(1000, 6);
+
+            Assert.Equal(0, rentabilidade?.ResultadoBruto);
+            Assert.Equal(0, rentabilidade?.ResultadoLiquido);
+        }
+
+        [Fact]
+        [Trait("Crítica Faixa Imposto de Renda Nula", "Serviços")]
+        public void CriticarFaixaImpostoRendaNula()
+        {
+            SetupMockTaxasBancarias();
+
+            Assert.NotNull(servicoCdb);
+
+            var rentabilidade = servicoCdb?.CalcularInvestimento(1000, 6);
+
+            Assert.Equal(0, rentabilidade?.ResultadoBruto);
+            Assert.Equal(0, rentabilidade?.ResultadoLiquido);
         }
         #endregion
     }
