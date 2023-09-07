@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace B3.TestesUnitarios.Negocio
+namespace B3.TestesUnitarios.Dominio
 {
     public class CalculoCdbTeste
     {
