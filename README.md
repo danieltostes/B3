@@ -84,9 +84,8 @@ dotnet test --collect "Xplat Code Coverage"
 ```
 
 9. Copiar o nome da pasta com o teste desejado gerado no diretório B3.TestesUnitarios/TestResults
-```
-O nome da pasta é um hash no padrão semelhante a ccf0c52c-5f63-44f2-ac48-58073ca30484
-```
+> O nome da pasta é um hash no padrão semelhante a ccf0c52c-5f63-44f2-ac48-58073ca30484
+
 ![Screenshot TestResults](imagens/testresults.png)
 
 10. Gerar o relatório de cobertura de testes (o comando deve ser executado no diretório raiz do repositório)
