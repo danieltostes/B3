@@ -20,7 +20,7 @@
 ## Sobre o projeto
 ![Screenshot da aplicação](imagens/aplicacao.png)
 
-Aplicação para o cálculo do de um investimento a partir de um valor inicial e um prazo em meses para o resgate. <br>
+Aplicação para o cálculo de um investimento a partir de um valor inicial e um prazo em meses para o resgate. <br>
 Após o cálculo, o sistema apresenta o resultado bruto e líquido do investimento.
 
 Requisitos:
