@@ -5,13 +5,13 @@
 <details>
   <summary>Conteúdo</summary>
   <ol>
+    <li><a href="#sobre-o-projeto">Sobre o projeto</a></li>
     <li>
-      <a href="#sobre-o-projeto">Sobre o projeto</a>
+      <a href="#execução">Execução</a>
       <ul><li><a href="#aplicação">Aplicação</a></li></ul>
       <ul><li><a href="#api">API</a></li></ul>
     </li>
-    <li><a href="#execução">Execução</a></li>
-    <li>Relatório de cobertura de testes</li>
+    <li><a href="#code-coverage">Code Coverage</a></li>
   </ol>
 </details>
 
@@ -57,5 +57,38 @@ dotnet build
 ```sh
 dotnet watch run
 ```
+![Screenshot da api](imagens/api.png)
+
+<p>(<a href="#readme-top">Voltar ao topo</a>)</p>
+
+### Code Coverage
+![Screenshot code coverage](imagens/cobertura.png)
+
+O relatório de cobertura foi gerado utilizando a dependência <a href="https://reportgenerator.io/usage">ReportGenerator</a> <br>
+O último relatório de cobertura de testes está disponível no diretório CoverageReport/index.html <br>
+Para atualizar o relatório é necessário seguir os passos abaixo:
+
+7. Instalar o ReportGenerator globalmente
+```sh
+dotnet tool install --global dotnet-reportgenerator-globaltool --version 5.1.25
+```
+
+8. Rodar os testes unitários com a instrução para gerar os arquivos xml com os resultados do teste
+```sh
+dotnet test --collect "Xplat Code Coverage"
+```
+
+9. Copiar o nome da pasta com o teste desejado gerado no diretório B3.TestesUnitarios/TestResults
+```
+O nome da pasta é um hash no padrão semelhante a ccf0c52c-5f63-44f2-ac48-58073ca30484
+```
+![Screenshot TestResults](imagens/testresults.png)
+
+10. Gerar o relatório de cobertura de testes (o comando deve ser executado no diretório raiz do repositório)
+```sh
+reportgenerator -reports:.\B3.TestesUnitarios\TestResults\[nome da pasta dos testes unitários]\coverage.cobertura.xml -targetdir:CoverageReport
+```
+
+11. Abrir o arquivo CoverageReport/index.html
 
 <p>(<a href="#readme-top">Voltar ao topo</a>)</p>
