@@ -20,7 +20,8 @@
 ## Sobre o projeto
 ![Screenshot da aplicação](imagens/aplicacao.png)
 
-Aplicação para o cálculo de um investimento a partir de um valor inicial e um prazo em meses para o resgate. <br>
+Aplicação para o cálculo de um investimento a partir de um valor inicial e um prazo em meses para o resgate.
+
 Após o cálculo, o sistema apresenta o resultado bruto e líquido do investimento.
 
 Requisitos:
@@ -66,8 +67,10 @@ dotnet watch run
 ### Code Coverage
 ![Screenshot code coverage](imagens/cobertura.png)
 
-O relatório de cobertura foi gerado utilizando a dependência <a href="https://reportgenerator.io/usage">ReportGenerator</a> <br>
-O último relatório de cobertura de testes está disponível no diretório CoverageReport/index.html <br>
+O relatório de cobertura foi gerado utilizando a dependência <a href="https://reportgenerator.io/usage">ReportGenerator</a>
+
+O último relatório de cobertura de testes está disponível no diretório CoverageReport/index.html
+
 Para atualizar o relatório é necessário seguir os passos abaixo:
 
 7. Instalar o ReportGenerator globalmente
