@@ -1,10 +1,5 @@
 ﻿using B3.Dominio.Entidades;
 using B3.Dominio.Interfaces.Repositorios;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace B3.Dados.Repositorios
 {
@@ -28,7 +23,7 @@ namespace B3.Dados.Repositorios
                 { 9999, 0.15M }
             };
 
-            FaixaImpostoRenda faixaImposto = new ();
+            FaixaImpostoRenda faixaImposto = new();
             var faixaAtribuida = false;
 
             foreach (var faixa in tabela)

@@ -1,11 +1,6 @@
 ﻿using B3.Dominio.Entidades;
 using B3.Dominio.Interfaces.Repositorios;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace B3.TestesUnitarios.Setups
 {

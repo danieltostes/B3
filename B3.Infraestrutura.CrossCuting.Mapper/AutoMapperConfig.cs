@@ -1,11 +1,6 @@
 ﻿using AutoMapper;
 using B3.Aplicacao.Modelos;
 using B3.Dominio.Entidades;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace B3.Infraestrutura.CrossCuting.Mapper
 {

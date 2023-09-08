@@ -1,14 +1,9 @@
-﻿using B3.Dominio.Entidades;
-using B3.Dominio.Interfaces.Repositorios;
+﻿using B3.Dominio.Interfaces.Repositorios;
 using B3.Dominio.Interfaces.Servicos;
 using B3.Dominio.Servicos;
 using B3.TestesUnitarios.Setups;
 using Moq;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace B3.TestesUnitarios.Dominio
@@ -42,7 +37,7 @@ namespace B3.TestesUnitarios.Dominio
         public void CalcularRendimentoCdb(decimal valorInicial, int prazoMeses)
         {
             #region Valores esperados para meses aplicados
-            var resultadosEsperados = new Dictionary<int, decimal[] >
+            var resultadosEsperados = new Dictionary<int, decimal[]>
             {
                 { 1, new decimal[]{ 0, 0 } },
                 { 6, new decimal[]{ 1059.76M, 1046.31M } },
@@ -58,7 +53,7 @@ namespace B3.TestesUnitarios.Dominio
             Assert.NotNull(servicoCdb);
 
             var rentabilidade = servicoCdb?.CalcularInvestimento(valorInicial, prazoMeses);
-            
+
             Assert.Equal(resultadosEsperados[prazoMeses][0], rentabilidade?.ResultadoBruto);
             Assert.Equal(resultadosEsperados[prazoMeses][1], rentabilidade?.ResultadoLiquido);
         }

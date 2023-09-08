@@ -1,17 +1,12 @@
 ﻿using B3.Aplicacao;
 using B3.Aplicacao.Interfaces;
-using B3.Dominio.Entidades;
 using B3.Dominio.Interfaces.Repositorios;
 using B3.Dominio.Interfaces.Servicos;
 using B3.Dominio.Servicos;
 using B3.Infraestrutura.CrossCuting.Mapper;
 using B3.TestesUnitarios.Setups;
 using Moq;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace B3.TestesUnitarios.Aplicacao

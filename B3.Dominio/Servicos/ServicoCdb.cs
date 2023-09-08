@@ -1,11 +1,6 @@
 ﻿using B3.Dominio.Entidades;
 using B3.Dominio.Interfaces.Repositorios;
 using B3.Dominio.Interfaces.Servicos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace B3.Dominio.Servicos
 {
@@ -48,7 +43,7 @@ namespace B3.Dominio.Servicos
 
             if (taxasBancarias == null || faixaImpostoRenda == null)
                 return rentabilidade;
-            
+
 
             decimal valorAplicacao = valorInicial;
             decimal valorFinal = 0;

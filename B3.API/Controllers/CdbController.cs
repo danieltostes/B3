@@ -21,7 +21,7 @@ namespace B3.API.Controllers
 
         #region Serviços
         [HttpPost]
-        public ActionResult CalcularRendimento([FromBody]CalculoRendimentoDto dto)
+        public ActionResult CalcularRendimento([FromBody] CalculoRendimentoDto dto)
         {
             #region Validações
             if (dto == null)

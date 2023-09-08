@@ -3,11 +3,6 @@ using B3.Aplicacao.Interfaces;
 using B3.Aplicacao.Modelos;
 using B3.Dominio.Entidades;
 using B3.Dominio.Interfaces.Servicos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace B3.Aplicacao
 {
