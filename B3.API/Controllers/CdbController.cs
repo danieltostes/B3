@@ -20,8 +20,8 @@ namespace B3.API.Controllers
         #endregion
 
         #region Serviços
-        [HttpGet]
-        public ActionResult CalcularRendimento(CalculoRendimentoDto dto)
+        [HttpPost]
+        public ActionResult CalcularRendimento([FromBody]CalculoRendimentoDto dto)
         {
             #region Validações
             if (dto == null)

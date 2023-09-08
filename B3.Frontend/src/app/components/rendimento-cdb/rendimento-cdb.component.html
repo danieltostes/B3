@@ -1,0 +1,54 @@
+<app-titulo [titulo]="'Cálculo de rendimento CDB'"></app-titulo>
+<div class="card rounded shadow-sm">
+    <form [formGroup]="form">
+        <div class="p-3">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label>Valor Inicial</label>
+                    <input type="text" currencyMask formControlName="valorInicial" class="form-control"
+                        [ngClass]="cssValidator(form.controls.valorInicial)" placeholder="R$ 0,00"
+                        [options]="{prefix:'R$ ', thousands:'.', decimal:',', align: 'left'}">
+                    <div *ngIf="form.controls.valorInicial.errors?.required" class="invalid-feedback">
+                        Preenchimento do valor inicial é obrigatório!
+                    </div>
+                    <div *ngIf="form.controls.valorInicial.errors?.min" class="invalid-feedback">
+                        Valor inicial deve ser maior que zero!
+                    </div>
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Prazo em Meses</label>
+                    <input type="text" formControlName="numeroMeses" class="form-control"
+                        [ngClass]="cssValidator(form.controls.numeroMeses)" placeholder="Número de meses">
+                    <div *ngIf="form.controls.numeroMeses.errors?.required" class="invalid-feedback">
+                        Preenchimento do número de meses é obrigatório!
+                    </div>
+                    <div *ngIf="form.controls.numeroMeses.errors?.min" class="invalid-feedback">
+                        Número de meses deve ser maior que um!
+                    </div>
+                    <div *ngIf="form.controls.numeroMeses.errors?.pattern" class="invalid-feedback">
+                        Apenas números são permitidos!
+                    </div>
+                </div>
+            </div>
+            <div class="form-row" *ngIf="rentabilidadeCdb">
+                <div class="form-group col-md-4">
+                    <label>Resultado Bruto:</label>
+                    <input type="text" class="form-control"
+                        value="{{rentabilidadeCdb.resultadoBruto | currency:'BRL'}}">
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Resultado Líquido:</label>
+                    <input type="text" class="form-control"
+                        value="{{rentabilidadeCdb.resultadoLiquido | currency:'BRL'}}">
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="d-flex">
+                <button class="btn btn-success" [disabled]="!form.valid" (click)="this.calcularRendimento()">
+                    Calcular Rendimento
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
