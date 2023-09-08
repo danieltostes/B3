@@ -78,7 +78,7 @@ Para atualizar o relatório é necessário seguir os passos abaixo:
 dotnet tool install --global dotnet-reportgenerator-globaltool --version 5.1.25
 ```
 
-8. Rodar os testes unitários com a instrução para gerar os arquivos xml com os resultados do teste
+8. Rodar os testes unitários com a instrução para gerar os arquivos xml com os resultados do teste (o comando deve ser executado no diretório raiz do repositório)
 ```sh
 dotnet test --collect "Xplat Code Coverage"
 ```
