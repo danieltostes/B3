@@ -11,6 +11,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CdbService } from './services/cdb.service';
 import ptBr from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { ModalComponent } from './shared/modal/modal.component';
 
 registerLocaleData(ptBr);
 
@@ -18,7 +20,8 @@ registerLocaleData(ptBr);
   declarations: [
     AppComponent,
     RendimentoCdbComponent,
-    TituloComponent
+    TituloComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,8 @@ registerLocaleData(ptBr);
     NgxCurrencyModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ModalModule.forRoot()
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt'},

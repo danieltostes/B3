@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 import { CalculoRendimento } from 'src/app/models/CalculoRendimento';
 import { RentabilidadeCdb } from 'src/app/models/RentabilidadeCdb';
 import { CdbService } from 'src/app/services/cdb.service';
+import { ModalComponent } from 'src/app/shared/modal/modal.component';
 
 @Component({
   selector: 'app-rendimento-cdb',
@@ -17,7 +19,8 @@ export class RendimentoCdbComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private cdbService: CdbService
+    private cdbService: CdbService,
+    private modalService: BsModalService
   ) { }
 
   ngOnInit(): void {
@@ -41,9 +44,15 @@ export class RendimentoCdbComponent implements OnInit {
       this.cdbService.rendimentoCdb(this.calculoRendimento!)
         .subscribe(
           (rentabilidade: RentabilidadeCdb) => this.rentabilidadeCdb = {...rentabilidade},
-          (error: any) => {console.error(error)}
+          (error: any) => {
+            const initialState: ModalOptions = {
+              initialState: {
+                mensagem: 'Erro ao calcular rendimento. \n Por favor, verifique se a API está online!'
+              }
+            }
+            this.modalService.show(ModalComponent, initialState);
+          }
         );
     }
   }
-
 }
