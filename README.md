@@ -12,6 +12,7 @@
       <ul><li><a href="#api">API</a></li></ul>
     </li>
     <li><a href="#code-coverage">Code Coverage</a></li>
+    <li><a href="#contato">Contato</a></li>
   </ol>
 </details>
 
@@ -61,6 +62,7 @@ dotnet watch run
 
 <p>(<a href="#readme-top">Voltar ao topo</a>)</p>
 
+<!-- Code Coverage -->
 ### Code Coverage
 ![Screenshot code coverage](imagens/cobertura.png)
 
@@ -90,5 +92,10 @@ reportgenerator -reports:.\B3.TestesUnitarios\TestResults\[nome da pasta dos tes
 ```
 
 11. Abrir o arquivo CoverageReport/index.html
+
+<p>(<a href="#readme-top">Voltar ao topo</a>)</p>
+
+### Contato
+Daniel Tostes - daniel.tostes@gmail.com
 
 <p>(<a href="#readme-top">Voltar ao topo</a>)</p>
