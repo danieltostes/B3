@@ -13,8 +13,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Aplicacao", "2 - Aplica
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infraestrutura", "4 - Infraestrutura", "{9349F5A3-6D83-4BF0-8008-9D4DA1A32BC5}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Apresentacao", "0 - Apresentacao", "{146A4BAA-81C8-4C08-AC4B-91622236EBA8}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "B3.Dados", "B3.Dados\B3.Dados.csproj", "{BCC02751-8E17-4E00-8796-6C7F92EA5D10}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "B3.TestesUnitarios", "B3.TestesUnitarios\B3.TestesUnitarios.csproj", "{F030AC51-1425-4570-8E64-2DD4DAF3027A}"
@@ -23,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "B3.Aplicacao", "B3.Aplicaca
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "B3.API", "B3.API\B3.API.csproj", "{BB6D28A5-D599-46C1-8110-D912ED13ACD0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B3.Infraestrutura.CrossCuting.Mapper", "B3.Infraestrutura.CrossCuting.Mapper\B3.Infraestrutura.CrossCuting.Mapper.csproj", "{F221445F-9E8A-46D3-95A4-D2A54A3F39A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "B3.Infraestrutura.CrossCuting.Mapper", "B3.Infraestrutura.CrossCuting.Mapper\B3.Infraestrutura.CrossCuting.Mapper.csproj", "{F221445F-9E8A-46D3-95A4-D2A54A3F39A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
