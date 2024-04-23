@@ -1,5 +1,5 @@
 <a name="readme-top"></a>
-<h3 align="center">[B]³ - Projeto de avaliação</h3>
+<h3 align="center">[B]³ - Projeto de teste</h3>
 
 <!-- Tabela de conteúdo -->
 <details>
